@@ -8,6 +8,7 @@ Library to help people to create CRUD in a easy way
 * TypeScript
 * Node
 * Express
+* Docker
 
 ### Routes
 
