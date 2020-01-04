@@ -105,3 +105,6 @@ dist
 
 # TypeScript outfile folder
 built/
+
+#VSCode
+.vscode/
