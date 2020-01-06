@@ -11,8 +11,9 @@ Library to help people to create CRUD in a easy way
 - Express
 - Docker
 - Nodemon
-- Babel
 - ESLint
+- Socrase
+- Prettier
 
 ### Routes
 

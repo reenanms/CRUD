@@ -1,5 +1,3 @@
-const hello = "Hello"
+import app from './app'
 
-const world = "World"
-
-console.log(hello + " " + world)
+app.listen();
