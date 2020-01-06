@@ -2,11 +2,17 @@ import express from 'express';
 
 
 class Client{
+  public id: number;
   public name: string;
   public age: number;
 }
 
 class App{
+  private startDataTeste() {
+    this.clients.push({id:1, name: "José", age: 20});
+    this.clients.push({id:2, name: "Pedro", age: 21});
+    this.clients.push({id:3, name: "Ana", age: 30});
+  }
   private express : express.Application;
   private clients : Client[];
 
@@ -15,6 +21,7 @@ class App{
     this.express = express();
     this.middlewares();
     this.routes();
+    this.startDataTeste();
   }
 
   private middlewares() : void {
@@ -23,7 +30,14 @@ class App{
 
   private routes() : void{
     this.express.get('/clients', (req, resp) => {
-      return resp.status(400).json(this.clients);
+      return resp.json(this.clients);
+    });
+
+    this.express.get('/clients/:id', (req, resp) => {
+      const { id } = req.params;
+      const client = this.clients.find(p => p.id === Number(id));
+      if (!client) return resp.status(400).json({ error: "id is required" });
+      return resp.json(client);
     });
   }
 
