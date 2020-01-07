@@ -33,6 +33,22 @@ class App{
       return resp.json(this.clients);
     });
 
+    this.express.post('/clients', (req, resp) => {
+      const { name, age } = req.body;
+
+      if (!name) return resp.status(400).json({ error: "name is required" });
+      if (!age) return resp.status(400).json({ error: "age is required" });
+
+      const client: Client = {
+        id: this.clients.length+1,
+        name: name,
+        age:Number(age)
+      };
+      this.clients.push(client);
+      
+      return resp.json(client);
+    });
+
     this.express.get('/clients/:id', (req, resp) => {
       const { id } = req.params;
       const client = this.clients.find(p => p.id === Number(id));
