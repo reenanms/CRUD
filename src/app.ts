@@ -55,6 +55,14 @@ class App{
       if (!client) return resp.status(400).json({ error: "id is required" });
       return resp.json(client);
     });
+
+    this.express.delete('/clients/:id', (req, resp) => {
+       const { id } = req.params;
+       const client = this.clients.find(p => p.id === Number(id));
+       if (!client) return resp.status(400).json({ error: "id is required" });
+       this.clients.splice(this.clients.indexOf(client), 1);
+       return resp.json(client);
+    })
   }
 
   public listen(){
