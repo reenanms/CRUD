@@ -62,7 +62,20 @@ class App{
        if (!client) return resp.status(400).json({ error: "id is required" });
        this.clients.splice(this.clients.indexOf(client), 1);
        return resp.json(client);
-    })
+    });
+
+    this.express.put('/clients/:id', (req, resp) => {
+      const { id } = req.params;
+      const client = this.clients.find(p => p.id === Number(id));
+      if (!client) return resp.status(400).json({ error: "id is required" });
+
+      const { name, age } = req.body;
+
+      if (name) client.name = name;
+      if (age) client.age = age;
+      
+      return resp.json(client);
+   })
   }
 
   public listen(){
