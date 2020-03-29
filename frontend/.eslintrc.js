@@ -1,12 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
-  ],
+  extends: ['plugin:vue/essential', 'airbnb-base'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,10 +12,6 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
-  plugins: [
-    'vue',
-    '@typescript-eslint',
-  ],
-  rules: {
-  },
+  plugins: ['vue', '@typescript-eslint'],
+  rules: {},
 };
