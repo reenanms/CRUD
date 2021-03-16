@@ -1,4 +1,4 @@
-import IComponent from "./IComponent.js"
+import IComponent from "./IComponent"
 import ComponentScreen from "./ComponentScreen"
 
 export default class ComponentScreenBuilder {
@@ -10,10 +10,10 @@ export default class ComponentScreenBuilder {
     this.components = components;
   }
   
-  public Build(): void {
+  public build(): void {
     for (let component of this.components) {
-      component.Build(this.componentScreen);
-      this.componentScreen.AddNewLine();
+      component.build(this.componentScreen);
+      this.componentScreen.addNewLine();
     }
   }
 }

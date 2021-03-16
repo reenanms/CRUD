@@ -4,18 +4,15 @@ export default class ComponentScreen {
 
   public constructor(elementId: string) {
     this.document = document;
-    console.log(elementId);
-    console.log(document.getElementById(elementId));
-
     this.areaToWrite = document.getElementById(elementId) as Element;
   }
 
-  public AddNewLine(): void {
+  public addNewLine(): void {
     var lineBreak = this.document.createElement("br");
     this.areaToWrite.appendChild(lineBreak);
   }
 
-  public AddHTML(html: string): void {
+  public addHTML(html: string): void {
     this.areaToWrite.innerHTML += html;
   }
 }
